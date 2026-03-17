@@ -1,0 +1,15 @@
+<!DOCTYPE html><html><body><div id='out'></div><script>
+    const SB_URL = 'https://ffprsdeicjjttfedzbif.supabase.co/rest/v1';
+    const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZmcHJzZGVpY2pqdHRmZWR6YmlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU1NTg4NTksImV4cCI6MjA4MTEzNDg1OX0.U5J1L6vv7RZztxUjJ4UKcNhtHzwOlaU0NTeXoyAa0GU';
+    
+    fetch(SB_URL + '/sefrep_registros?tema=ilike.*VTC*', {
+        headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+    })
+    .then(r => r.json())
+    .then(data => {
+        document.getElementById('out').innerText = 'COUNT: ' + data.length;
+    })
+    .catch(e => {
+        document.getElementById('out').innerText = 'ERROR: ' + e;
+    });
+</script></body></html>
